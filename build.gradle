@@ -21,10 +21,10 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:20.0'
+    // compile 'com.google.guava:guava:21.0'
 
     // https://mvnrepository.com/artifact/ar.com.hjg/pngj
-    compile group: 'ar.com.hjg', name: 'pngj', version: '2.0.1'
+    // compile group: 'ar.com.hjg', name: 'pngj', version: '2.0.1'
 
 
     // Use JUnit test framework
@@ -33,4 +33,3 @@ dependencies {
 
 // Define the main class for the application
 mainClassName = 'App'
-
