@@ -1,10 +1,9 @@
 public class Pixel {
     public byte r, g, b;
     public Pixel(int r, int g, int b) {
-        int r_temp = r & 0x0FF;
-        this.r = (byte)r_temp;
-        this.g = ((byte)g) & 0x0FF;
-        this.b = ((byte)b) & 0x0FF;
+        this.r = ((byte)r) & 0xFF;
+        this.g = ((byte)g) & 0xFF;
+        this.b = ((byte)b) & 0xFF;
     }
     public Pixel(int rgb) {
         this.r = getBytesFromInt(rgb)[0];
@@ -14,7 +13,7 @@ public class Pixel {
 
     public static int getIntFromByte(byte r, byte g, byte b) {
 
-        // n gets bitwise AND'd with 0x0ff to limit the value to be a maximum of 255 (0x0ff),
+        // n gets bitwise AND'd with 0xff to limit the value to be a maximum of 255 (0xff),
         // basically to get the unsigned byte
         // then each gets shifted a certain amount so each byte will fit in a Java 4-byte integer
         // the bitwise OR basically concatenates all 3 separate bytes into one
@@ -35,7 +34,7 @@ public class Pixel {
 
         */
 
-        return ((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
+        return ((r&0xFF)<<16)|((g&0xFF)<<8)|(b&0xFF);
     }
     public static byte[] getBytesFromInt(int rgb) {
 
@@ -44,9 +43,9 @@ public class Pixel {
         // sort of like String.substring()
 
         return new byte[]{
-            ((byte)(rgb>>16)) & 0x0ff,
-            ((byte)(rgb>>8)) & 0x0ff,
-            ((byte)(rgb)) & 0x0ff
+            ((byte)(rgb>>16)) & 0xFF,
+            ((byte)(rgb>>8)) & 0xFF,
+            ((byte)(rgb)) & 0xFF
         };
     }
 }
