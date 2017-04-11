@@ -1,10 +1,9 @@
 public class Pixel {
     public byte r, g, b;
     public Pixel(int r, int g, int b) {
-        int r_temp = r & 0x0FF;
-        this.r = (byte)r_temp;
-        this.g = ((byte)g) & 0x0FF;
-        this.b = ((byte)b) & 0x0FF;
+        this.r = (byte)(r * 0x0FF);
+        this.g = (byte)(g & 0x0FF);
+        this.b = (byte)(b & 0x0FF);
     }
     public Pixel(int rgb) {
         this.r = getBytesFromInt(rgb)[0];
@@ -44,9 +43,9 @@ public class Pixel {
         // sort of like String.substring()
 
         return new byte[]{
-            ((byte)(rgb>>16)) & 0x0ff,
-            ((byte)(rgb>>8)) & 0x0ff,
-            ((byte)(rgb)) & 0x0ff
+            (byte) ((rgb>>16) & 0x0ff),
+            (byte) ((rgb>>8) & 0x0ff),
+            (byte) (rgb & 0x0ff)
         };
     }
 }

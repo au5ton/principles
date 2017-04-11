@@ -3,26 +3,27 @@
  */
 
 import java.io.File;
+import magick.*;
 
 public class App {
 public String getGreeting() {
         return "Hello world.";
 }
 
-public static void main(String[] args) {
+public static void main(String[] args) throws MagickException {
         System.out.println(new App().getGreeting());
 
         //Data to embed
         byte[] mySecret = "drink your ovaltine".getBytes();
 
-        // ImageBuffer img = null;
-        //
-        // try {
-        //         img = ImageIO.read(new File("strawberry.jpg"));
-        // } catch (IOException e) {
-        //         //
-        // }
-        //
-        // PngWriter out = new PngWriter(new File("test_image_embed.png"), )
+        MagickImage img = new MagickImage(new ImageInfo("basn6a16.png"));
+
+
+        System.out.println(img.getImageFormat());
+        //getOnePixel(int x, int y)
+
+        //ImageProcessor.embedData(img, mySecret); //mutator
+
+        img.writeImage(new ImageInfo("output.png"));
 }
 }
