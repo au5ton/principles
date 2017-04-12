@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Piglatin</title>
+	<style>
+		.empty {
+			color: #777;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Piglatin</h1>
+	<p id="out"></p>
+	<input id="in" type="text" />
+
+	<script>
+    var input = document.getElementById('in');
+    var output = document.getElementById('out');
+    input.addEventListener('keyup', function () {
+        if(input.value.length === 0) {
+            output.innerHTML = '<span class=\"empty\">Try typing something below.</span>';
+        }
+        else {
+            output.innerHTML = doLine(input.value);
+        }
+    });
+
+    function doLine(line) {
+        var ray = line.split(' ');
+        var newLine = '';
+        for(let i = 0; i < ray.length; i++) {
+            newLine += pig(ray[i]) + ' ';
+        }
+        return newLine;
+    }
+
+    function pig(word) {
+        if (isVowel(word.charAt(0))) {
+            return word + 'yay';
+        } else {
+            return word.substring(1,word.length)+word.charAt(0)+'ay';
+        }
+    }
+
+    function isVowel(str) {
+        str = str.toLowerCase();
+        if (str === 'a' || str === 'e' || str === 'i' || str === 'o' || str === 'u') {
+            return true;
+        }
+        return false;
+    }
+
+    input.dispatchEvent(new Event('keyup'));
+	</script>
+</body>
+
+</html>
