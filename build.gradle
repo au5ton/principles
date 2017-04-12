@@ -28,7 +28,8 @@ dependencies {
     // compile group: 'ar.com.hjg', name: 'pngj', version: '2.0.1'
 
     // https://mvnrepository.com/artifact/jmagick/jmagick
-    compile group: 'jmagick', name: 'jmagick', version: '6.6.9'
+    //compile group: 'jmagick', name: 'jmagick', version: '6.6.9'
+    compile 'jmagick:jmagick:6.6.9'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'

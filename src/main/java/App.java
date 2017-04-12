@@ -16,6 +16,8 @@ public static void main(String[] args) throws MagickException {
         //Data to embed
         byte[] mySecret = "drink your ovaltine".getBytes();
 
+        System.out.println("java.library.path is: " + System.getProperty("java.library.path"));
+
         MagickImage img = new MagickImage(new ImageInfo("basn6a16.png"));
 
 
